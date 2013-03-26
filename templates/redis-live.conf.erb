@@ -1,0 +1,9 @@
+{ "RedisServers" : [
+<%= redis_servers.collect {|rs| "{\"port\": #{rs['port']}, \"server\": \"#{rs['server']}\"}" }.join(",") %>
+  ],
+  "DataStoreType" : "redis",
+  "RedisStatsServer" : {
+      "port" : <%= redis_stats_server["port"] %>,
+      "server" : <%= redis_stats_server["server"] %>
+  }
+}
